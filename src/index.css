@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  /* Background scale — deep cool-dark, "space terminal" */
+  --color-bg-base: #0c0c0f;
+  --color-bg-surface: #13131a;
+  --color-bg-elevated: #1a1a24;
+  --color-bg-overlay: #22222f;
+
+  /* Text hierarchy */
+  --color-text-primary: #e8e8f0;
+  --color-text-secondary: #9494a8;
+  --color-text-muted: #55556a;
+
+  /* Accent — Electric Indigo: "terminal cursor + star" energy */
+  --color-accent: #818cf8;
+  --color-accent-dim: #4f46e5;
+  --color-accent-glow: rgba(129, 140, 248, 0.25);
+  --color-accent-glow-sm: rgba(129, 140, 248, 0.12);
+
+  /* Mode colors */
+  --color-break-short: #34d399;
+  --color-break-long: #60a5fa;
+
+  /* Border */
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-focus: rgba(129, 140, 248, 0.4);
+
+  /* Fonts */
+  --font-display: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Glow shadows */
+  --shadow-glow: 0 0 24px rgba(129, 140, 248, 0.3), 0 0 48px rgba(129, 140, 248, 0.1);
+  --shadow-glow-sm: 0 0 12px rgba(129, 140, 248, 0.2);
+  --shadow-glow-green: 0 0 16px rgba(52, 211, 153, 0.25);
+  --shadow-glow-blue: 0 0 16px rgba(96, 165, 250, 0.25);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+::-webkit-scrollbar { width: 0; }
+
+/* Buttons never show a focus ring — suppress tap highlight on mobile too */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus,
+button:focus-visible {
+  outline: none;
+}
+
+/* Keyboard focus ring only for non-button interactive elements */
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
