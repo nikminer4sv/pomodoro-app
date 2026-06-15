@@ -29,6 +29,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
           script: rm -rf /var/www/pomodoro/*
 
       - name: Deploy to server
@@ -37,6 +38,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
           source: "dist/*"
           target: /var/www/pomodoro
           strip_components: 1
